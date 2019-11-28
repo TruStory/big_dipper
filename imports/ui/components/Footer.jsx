@@ -23,7 +23,7 @@ export default class Footer extends React.Component {
                     <span className="text-muted"><a href="https://raw.githubusercontent.com/forbole/big_dipper/master/LICENSE" target="_blank"><T>navbar.license</T></a> &copy;2018-{moment().format('YYYY')}. </span>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="https://www.github.com/forbole/big_dipper" target="_blank"><i className="fab fa-github"></i> <T>navbar.forkMe</T></NavLink>
+                            <NavLink href="https://www.github.com/TruStory/explorer" target="_blank"><i className="fab fa-github"></i> </NavLink>
                         </NavItem>
                     </Nav>
                 </Navbar>

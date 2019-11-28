@@ -18,6 +18,12 @@ export default class ChainStates extends Component{
                 data.communityPool = this.props.chainStates.communityPool.map((pool,i) => {
                     return <span key={i}>{new Coin(pool.amount).stakeString('0,0.00')}</span>
                 })
+                data.userGrowthPool = this.props.chainStates.userGrowthPool.map((pool,i) => {
+                    return <span key={i}>{new Coin(pool.amount).stakeString('0,0.00')}</span>
+                })
+                data.userRewardPool = this.props.chainStates.userRewardPool.map((pool,i) => {
+                    return <span key={i}>{new Coin(pool.amount).stakeString('0,0.00')}</span>
+                })
                 data.inflation = numbro(this.props.chainStates.inflation).format("0.00%")
             }
 
@@ -33,7 +39,9 @@ export default class ChainStates extends Component{
                 price: "$-",
                 marketCap: "$-",
                 inflation: 0,
-                communityPool: 0
+                communityPool: 0,
+                userGrowthPool: 0,
+                userRewardPool: 0
             }
         }
     }
@@ -43,6 +51,12 @@ export default class ChainStates extends Component{
             if (this.props.chainStates.communityPool){
                 this.setState({
                     communityPool: this.props.chainStates.communityPool.map((pool,i) => {
+                        return <span key={i}>{new Coin(pool.amount).stakeString('0,0.00')}</span>
+                    }),
+                    userGrowthPool: this.props.chainStates.userGrowthPool.map((pool,i) => {
+                        return <span key={i}>{new Coin(pool.amount).stakeString('0,0.00')}</span>
+                    }),
+                    userRewardPool: this.props.chainStates.userRewardPool.map((pool,i) => {
                         return <span key={i}>{new Coin(pool.amount).stakeString('0,0.00')}</span>
                     }),
                     inflation: numbro(this.props.chainStates.inflation).format("0.00%")
@@ -66,6 +80,8 @@ export default class ChainStates extends Component{
                     <Col xs={4} md="auto"><small><span><T>chainStates.price</T>:</span> <strong>${this.state.price}</strong></small></Col>
                     <Col xs={8} md="auto"><small><span><T>chainStates.marketCap</T>:</span> <strong>{this.state.marketCap}</strong></small></Col>
                     <Col xs={4} md="auto"><small><span><T>chainStates.inflation</T>:</span> <strong>{this.state.inflation}</strong></small></Col>
+                    <Col xs={8} md="auto"><small><span><T>chainStates.userGrowthPool</T>:</span> <strong>{this.state.userGrowthPool}</strong></small></Col>
+                    <Col xs={8} md="auto"><small><span><T>chainStates.userRewardPool</T>:</span> <strong>{this.state.userRewardPool}</strong></small></Col>
                     <Col xs={8} md="auto"><small><span><T>chainStates.communityPool</T>:</span> <strong>{this.state.communityPool}</strong></small></Col>
                 </Row>
             </CardHeader>
