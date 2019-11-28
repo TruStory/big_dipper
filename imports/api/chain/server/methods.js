@@ -141,6 +141,42 @@ Meteor.methods({
                     console.log(e);
                 }
 
+                url = LCD + '/bank/balances/tru1f7x5wx3adh6klcurmd8n36etx4elgu9dna9r2n';
+                try {
+                    response = HTTP.get(url);
+                    let pool = JSON.parse(response.content).result;
+                    if (pool && pool.length > 0){
+                        chainStates.userGrowthPool = [];
+                        pool.forEach((amount, i) => {
+                            chainStates.userGrowthPool.push({
+                                denom: amount.denom,
+                                amount: parseFloat(amount.amount)
+                            })
+                        })
+                    }
+                }
+                catch (e){
+                    console.log(e)
+                }
+
+                url = LCD + '/bank/balances/tru1ed82m7snyk8mux8xxpwygvtyq633a4k4hs6xaa';
+                try {
+                    response = HTTP.get(url);
+                    let pool = JSON.parse(response.content).result;
+                    if (pool && pool.length > 0){
+                        chainStates.userRewardPool = [];
+                        pool.forEach((amount, i) => {
+                            chainStates.userRewardPool.push({
+                                denom: amount.denom,
+                                amount: parseFloat(amount.amount)
+                            })
+                        })
+                    }
+                }
+                catch (e){
+                    console.log(e)
+                }
+
                 ChainStates.insert(chainStates);
             }
 
