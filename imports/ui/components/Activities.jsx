@@ -65,7 +65,7 @@ export default class Activites extends Component {
         case "cosmos-sdk/MsgSubmitProposal":
             let attrs = this.props.events[2].attributes 
             if (!attrs){
-                console.log('empty attrs', attrs)
+                console.log('empty attrs', this.props.events[2], this.props.events, this.props.msg)
                 attrs = [{value : -1}]
             }
             proposalId = attrs[0].value
