@@ -45,6 +45,8 @@ chainStates:
     marketCap: 'Market Cap'
     inflation: 'Inflation'
     communityPool: 'Community Pool'
+    userGrowthPool: 'User Growth Pool'
+    userRewardPool: 'User Reward Pool'
 chainStatus:
     startMessage: 'The chain is going to start in'
     stopWarning: 'The chain appears to be stopped for <em>{$time}</em>! Feed me with new blocks 😭!'
