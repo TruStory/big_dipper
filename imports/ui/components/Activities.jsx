@@ -63,12 +63,10 @@ export default class Activites extends Component {
 
             // gov
         case "cosmos-sdk/MsgSubmitProposal":
-            if (this.props.events.length<3 ||  !this.props.events[2] || !this.props.events[2].attributes ){
-                console.log('empty attributes', this.props.events, this.props.msg)
-                let proposalId = `-1`
-                return <p><Account address={msg.value.proposer} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <T>activities.withTitle</T> <Link to={"/proposals/"+proposalId}>{msg.value.content.value.title}</Link><T>common.fullStop</T></p>
+            if (this.props.invalid){
+                return <p><Account address={msg.value.proposer} /> <T>activities.failedTo</T><MsgType type={msg.type} /> <T>activities.withTitle</T> <T>common.fullStop</T></p>
             }
-            return <p><Account address={msg.value.proposer} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <T>activities.withTitle</T> <Link to={"/proposals/"+this.props.events[2].attributes[0].value}>{msg.value.content.value.title}</Link><T>common.fullStop</T></p>
+            return <p><Account address={msg.value.proposer} /> <MsgType type={msg.type} /> <T>activities.withTitle</T> <Link to={"/proposals/"+this.props.events[2].attributes[0].value}>{msg.value.content.value.title}</Link><T>common.fullStop</T></p>
         case "cosmos-sdk/MsgVote":
             return <p><Account address={msg.value.voter} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} />  <Link to={"/proposals/"+msg.value.proposal_id}><T>proposals.proposal</T> {msg.value.proposal_id}</Link> <T>activities.withA</T> <em className="text-info">{msg.value.option}</em><T>common.fullStop</T></p>
 
