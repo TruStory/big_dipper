@@ -64,7 +64,7 @@ export default class Activites extends Component {
             // gov
         case "cosmos-sdk/MsgSubmitProposal":
             if (this.props.invalid){
-                return <p><Account address={msg.value.proposer} /> <T>activities.failedTo</T><MsgType type={msg.type} /> <T>activities.withTitle</T> <T>common.fullStop</T></p>
+                return <p><Account address={msg.value.proposer} /> <T>activities.failedTo</T><MsgType type={msg.type} /> <T>activities.withTitle</T> {msg.value.content.value.title} <T>common.fullStop</T></p>
             }
             return <p><Account address={msg.value.proposer} /> <MsgType type={msg.type} /> <T>activities.withTitle</T> <Link to={"/proposals/"+this.props.events[2].attributes[0].value}>{msg.value.content.value.title}</Link><T>common.fullStop</T></p>
         case "cosmos-sdk/MsgVote":
